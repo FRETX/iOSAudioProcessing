@@ -37,4 +37,12 @@ import Foundation
         return midiNote
     }
     
+    public func getString()->Int{
+        return string
+    }
+    
+    public func getFret()->Int{
+        return fret
+    }
+    
 }

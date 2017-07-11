@@ -9,14 +9,14 @@
 import Foundation
 
 @objc public class FingerPositions:NSObject {
-    var name:String = "x"
-    var baseFret:Int = -1
-    var string6:Int = -1
-    var string5:Int = -1
-    var string4:Int = -1
-    var string3:Int = -1
-    var string2:Int = -1
-    var string1:Int = -1
+    public var name:String = "x"
+    public var baseFret:Int = -1
+    public var string6:Int = -1
+    public var string5:Int = -1
+    public var string4:Int = -1
+    public var string3:Int = -1
+    public var string2:Int = -1
+    public var string1:Int = -1
     
     public init(name:String, baseFret:Int,string6:Int,string5:Int,string4:Int,string3:Int,string2:Int,string1:Int){
         self.name = name

@@ -9,8 +9,8 @@
 import Foundation
 
 @objc public class Scale:NSObject{
-    let ALL_ROOT_NOTES = ["C", "C#", "D", "Eb", "E", "F", "F#", "G", "G#", "A", "Bb", "B"]
-    let ALL_SCALE_TYPES = ["Major","Minor","Major Pentatonic","Minor Pentatonic","Blues","Melodic Minor","Ionian","Dorian","Phrygian","Lydian","Mixolydian","Aeolian","Locrian","Whole Tone"]
+    public static let ALL_ROOT_NOTES = ["C", "C#", "D", "Eb", "E", "F", "F#", "G", "G#", "A", "Bb", "B"]
+    public static let ALL_SCALE_TYPES = ["Major","Minor","Major Pentatonic","Minor Pentatonic","Blues","Melodic Minor","Ionian","Dorian","Phrygian","Lydian","Mixolydian","Aeolian","Locrian","Whole Tone"]
     let root:String
     let type:String
     private let rootNoteMidi:Int
@@ -114,4 +114,15 @@ import Foundation
         fretboardPositions = tmpFretboardPositions
     }
     
+    public func getFingering() -> [FretboardPosition]{
+        return self.fretboardPositions
+    }
+    
+    public func getRoot()->String{
+        return root
+    }
+    
+    public func getType()->String{
+        return type
+    }
 }

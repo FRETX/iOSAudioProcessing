@@ -9,9 +9,9 @@
 import Foundation
 
 @objc public class Chord: NSObject {
-    let ALL_ROOT_NOTES = ["A", "Bb", "B", "C", "C#", "D", "Eb", "E", "F", "F#", "G", "G#"]
-    let ALL_CHORD_TYPES = ["maj", "m", "maj7", "m7", "5", "7", "9", "sus2", "sus4", "7sus4", "7#9", "add9", "aug", "dim", "dim7"]
-    let NOISE_CLASS_ROOT_AND_TYPE = ["X","X"]
+    public static let ALL_ROOT_NOTES = ["A", "Bb", "B", "C", "C#", "D", "Eb", "E", "F", "F#", "G", "G#"]
+    public static let ALL_CHORD_TYPES = ["maj", "m", "maj7", "m7", "5", "7", "9", "sus2", "sus4", "7sus4", "7#9", "add9", "aug", "dim", "dim7"]
+    public let NOISE_CLASS_ROOT_AND_TYPE = ["X","X"]
     
     let root:String
     let type:String
@@ -49,6 +49,22 @@ import Foundation
         self.baseFret = tmpBaseFret
         self.fingerPositions = tmpFingerPositions
         
+    }
+    
+    public func getFingering() -> [FretboardPosition]{
+        return self.fingerPositions
+    }
+    
+    public func getRoot()->String{
+        return root
+    }
+    
+    public func getType()->String{
+        return type
+    }
+    
+    public func getBaseFret()->Int{
+        return baseFret
     }
     
     private func getChordFormula()->[Int]{
