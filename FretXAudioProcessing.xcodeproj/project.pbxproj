@@ -23,6 +23,7 @@
 		77C30C431F0577DA00872072 /* PitchDetector.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77C30C351F0577DA00872072 /* PitchDetector.swift */; };
 		77C30C441F0577DA00872072 /* Scale.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77C30C361F0577DA00872072 /* Scale.swift */; };
 		77C30C461F05782400872072 /* TempiFFT.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77C30C451F05782400872072 /* TempiFFT.swift */; };
+		77C7F7041F16153F006414DC /* Audio.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77C7F7031F16153F006414DC /* Audio.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -44,6 +45,7 @@
 		77C30C351F0577DA00872072 /* PitchDetector.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PitchDetector.swift; sourceTree = "<group>"; };
 		77C30C361F0577DA00872072 /* Scale.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Scale.swift; sourceTree = "<group>"; };
 		77C30C451F05782400872072 /* TempiFFT.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TempiFFT.swift; sourceTree = "<group>"; };
+		77C7F7031F16153F006414DC /* Audio.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Audio.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -76,6 +78,7 @@
 		77C30C201F0577BA00872072 /* FretXAudioProcessing */ = {
 			isa = PBXGroup;
 			children = (
+				77C7F7031F16153F006414DC /* Audio.swift */,
 				77C30C451F05782400872072 /* TempiFFT.swift */,
 				77C30C291F0577DA00872072 /* AudioAnalyzer.swift */,
 				77C30C2A1F0577DA00872072 /* AudioData.swift */,
@@ -188,6 +191,7 @@
 				77C30C441F0577DA00872072 /* Scale.swift in Sources */,
 				77C30C421F0577DA00872072 /* PitchDetectionResult.swift in Sources */,
 				77C30C3D1F0577DA00872072 /* ChordDetector.swift in Sources */,
+				77C7F7041F16153F006414DC /* Audio.swift in Sources */,
 				77C30C391F0577DA00872072 /* AudioInputHandler.swift in Sources */,
 				77C30C371F0577DA00872072 /* AudioAnalyzer.swift in Sources */,
 				77C30C3A1F0577DA00872072 /* AudioProcessing.swift in Sources */,
@@ -315,7 +319,7 @@
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				INFOPLIST_FILE = FretXAudioProcessing/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = rocks.fretx.FretXAudioProcessing;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -338,7 +342,7 @@
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				INFOPLIST_FILE = FretXAudioProcessing/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = rocks.fretx.FretXAudioProcessing;
 				PRODUCT_NAME = "$(TARGET_NAME)";

@@ -15,7 +15,7 @@ import Foundation
     private var yinBuffer:[Float]
     private var result:PitchDetectionResult = PitchDetectionResult()
     private var lastValues = [Float](repeating: -1 , count:9)
-    private var medianPitch:Float = -1
+    internal var medianPitch:Float = -1
     
     public init(sampleRate:Float, frameShift:Int, frameLength:Int , threshold:Float) {
         self.threshold = threshold
@@ -86,7 +86,7 @@ import Foundation
         var i = 0
         var tauFound = false
         
-        while !tauFound && (i+1 < yinBuffer.count-1) {
+        while !tauFound && (i+1 < yinBuffer.count-2) {
             if(yinBuffer[i] < threshold){
                 if(i+1 >= yinBuffer.count-2){
                     break

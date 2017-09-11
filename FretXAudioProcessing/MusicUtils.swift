@@ -234,4 +234,13 @@ import Foundation
         }
     }
     
+    public static func getBluetoothArrayFromScale(scale:Scale)->[UInt8]{
+        var bluetoothArray:[UInt8] = []
+        let fretboardPositions = scale.getFingering()
+        for fp in fretboardPositions {
+            bluetoothArray.append(fp.getByteCode())
+        }
+        return bluetoothArray
+    }
+    
 }

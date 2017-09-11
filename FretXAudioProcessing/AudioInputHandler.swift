@@ -72,6 +72,11 @@ class AudioInputHandler: NSObject {
             }
             
             try self.audioSession.setActive(true)
+            print("sample rate")
+            print(audioSession.sampleRate)
+            print("buffer size)")
+            print(audioSession.ioBufferDuration)
+            
             var osErr: OSStatus = 0
             
             osErr = AudioUnitInitialize(self.audioUnit)
@@ -85,13 +90,19 @@ class AudioInputHandler: NSObject {
     
     /// Stop recording.
     func stopRecording() {
+        if(audioUnit == nil){
+            print("Audio tried to be released but audioUnit is already nil")
+            return
+        }
         do {
             var osErr: OSStatus = 0
             
             osErr = AudioUnitUninitialize(self.audioUnit)
             assert(osErr == noErr, "*** AudioUnitUninitialize err \(osErr)")
             
+            print("trying to deactivate audio session")
             try self.audioSession.setActive(false)
+            
         } catch {
             print("*** error: \(error)")
         }

@@ -9,9 +9,9 @@
 import Foundation
 
 @objc public class Chord: NSObject {
-    public static let ALL_ROOT_NOTES = ["A", "Bb", "B", "C", "C#", "D", "Eb", "E", "F", "F#", "G", "G#"]
+    public static let ALL_ROOT_NOTES = ["C", "C#", "D", "Eb", "E", "F", "F#", "G", "G#", "A", "Bb", "B"]
     public static let ALL_CHORD_TYPES = ["maj", "m", "maj7", "m7", "5", "7", "9", "sus2", "sus4", "7sus4", "7#9", "add9", "aug", "dim", "dim7"]
-    public let NOISE_CLASS_ROOT_AND_TYPE = ["X","X"]
+    public static let NOISE_CLASS_ROOT_AND_TYPE = ["X","X"]
     
     let root:String
     let type:String
@@ -179,6 +179,18 @@ import Foundation
     
     public static func ==(lhs:Chord,rhs:Chord)->Bool{
         return lhs.name == rhs.name
+    }
+    
+    public override func isEqual(_ object: Any?) -> Bool {
+        if let chord = object as? Chord{
+            if(self.name == chord.name){
+                return true
+            } else {return false}
+        } else {return false}
+    }
+    
+    public override var hash:Int {
+        return self.name.hashValue
     }
 }
 

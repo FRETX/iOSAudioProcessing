@@ -11,7 +11,7 @@ import Foundation
 @objc public class ChordDetector:AudioAnalyzer{
     private var tempBuffer:[Float] = []
     private var targetChords:[Chord]
-    private var detectedChord:Chord = Chord(root: "x",type: "x")
+    internal var detectedChord:Chord = Chord(root: "x",type: "x")
     private var chordSimilarity:Float = -1
     
 //    private var magnitudeSpectrum:[Float] = []
@@ -27,7 +27,7 @@ import Foundation
         while tempBuffer.count > 0 {
             let chromagram = getChromagram(audioBuffer: tempBuffer)
             detectedChord = detectChord(targetChords: self.targetChords, chromagram: chromagram)
-            print(detectedChord.name)
+//            print(detectedChord.name)
             output = Float(Int(targetChords.index(of: detectedChord)!))
             tempBuffer = getNextFrame()
         }

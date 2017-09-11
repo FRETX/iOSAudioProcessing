@@ -63,18 +63,45 @@ import Foundation
         var rootNoteCandidate:Int = upperBoundMidiNote
         let maxNote = upperBoundMidiNote
         let minNote = lowerBoundMidiNote
+        var lowestRootNoteIndex = 0;
         for i in (0...rootNotesMidi.count-1).reversed() {
             if(rootNotesMidi[i] <= maxNote && rootNotesMidi[i] >= minNote){
                 rootNoteCandidate = rootNotesMidi[i]
+                lowestRootNoteIndex = i;
             }
         }
         self.rootNoteMidi = rootNoteCandidate
+        
+        
+        
+        var lowerPartialOctaveRootNote = rootNoteMidi;
+        if(lowestRootNoteIndex > 0){
+            lowerPartialOctaveRootNote = rootNotesMidi[lowestRootNoteIndex-1]
+        }
+        
+        var lowerPartialNotes:[Int] = []
+        
+        var accumulator = 0
+        var nNotesInPartialOctave = 0
+        
+        for i in 0..<scaleFormula.count {
+            accumulator += scaleFormula[i]
+            if(lowerPartialOctaveRootNote + accumulator < lowerBoundMidiNote){
+                continue;
+            }
+            lowerPartialNotes.append(lowerPartialOctaveRootNote+accumulator)
+            if(lowerPartialOctaveRootNote + accumulator > rootNoteMidi){
+                break;
+            }
+        }
+        
+        
         let octavesToGenerate = Int(ceil(Double(upperBoundMidiNote - rootNoteCandidate)/12))
         let endOfLastFullOctave = (rootNoteCandidate + (octavesToGenerate-1)*12)
 //        let semitonesInPartialOctave = upperBoundMidiNote - endOfLastFullOctave
         
-        var accumulator = 0
-        var nNotesInPartialOctave = 0
+        accumulator = 0
+        nNotesInPartialOctave = 0
         
         for i in 0..<scaleFormula.count {
             accumulator += scaleFormula[i]
@@ -99,7 +126,10 @@ import Foundation
             }
         }
         
-        self.notes = tmpNotes
+        let fullNotes = lowerPartialNotes + tmpNotes
+        
+        self.notes = fullNotes
+        
         var tmpFretboardPositions:[FretboardPosition] = []
         for j in 0..<notes.count {
             let fp = MusicUtils.midiNoteToFretboardPosition(note: notes[j])
