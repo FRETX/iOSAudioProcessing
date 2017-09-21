@@ -210,6 +210,15 @@ import Foundation
         return fp
     }
     
+    public static func leftHandizeBluetoothArray(btArray:[UInt8])->[UInt8]{
+        var arr = btArray;
+        for i in 0..<btArray.count-1 {
+            let string = btArray[i] % 10
+            arr[i] = btArray[i] - string + (7-string)
+        }
+        return arr
+    }
+    
     public static func getBluetoothArrayFromChord(chordName:String)->[UInt8]{
         if chordName == "noise" {
             return [0]
