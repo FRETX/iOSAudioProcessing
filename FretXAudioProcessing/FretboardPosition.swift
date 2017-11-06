@@ -26,7 +26,14 @@ import Foundation
     }
     
     public func getByteCode() -> UInt8 {
-        return UInt8(string + 10*fret)
+        let ledCode = string + 10*fret
+        if(ledCode < 0){
+            return UInt8(99)
+            //This is for avoiding the representation problem with negative numbers in UInt8
+            //It won't be displayed on FretX device even if it's sent
+        } else {
+            return UInt8(ledCode)
+        }
     }
     
     public func toMidi() -> Int{
